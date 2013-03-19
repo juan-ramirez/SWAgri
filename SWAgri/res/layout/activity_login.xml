@@ -3,30 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
-    android:background="@drawable/background">
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="85dp"
-        android:text="SWAgri"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="60dp" 
-        android:textColor="@android:color/white"/>
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="84dp"
-        android:text="Inicio de Sesión"
-        android:textAppearance="?android:attr/textAppearanceLarge" 
-        android:textColor="@android:color/white"/>
+    android:background="@drawable/bg_login">
 
     <EditText
         android:id="@+id/editText1"
@@ -34,50 +11,41 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:ems="15" >
+        android:ems="11"
+        android:text="Usuario" 
+        android:textSize="30dp">
 
         <requestFocus />
     </EditText>
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editText1"
-        android:layout_centerHorizontal="true"
-        android:text="Nombre de Usuario"
-        android:textAppearance="?android:attr/textAppearanceLarge" 
-        android:textColor="@android:color/white"/>
 
     <EditText
         android:id="@+id/editText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_alignRight="@+id/editText1"
         android:layout_below="@+id/editText1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="102dp"
-        android:ems="15"
-        android:inputType="textPassword" />
+        android:layout_marginTop="46dp"
+        android:ems="11"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:text="Contraseña" 
+        android:textSize="30dp">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editText2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="39dp"
-        android:text="Contraseña"
-        android:textAppearance="?android:attr/textAppearanceLarge" 
-        android:textColor="@android:color/white"/>
+        <requestFocus />
+    </EditText>
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="450dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText2"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="117dp"
-        android:text="Ingresar" 
-        android:textColor="@android:color/white"/>
+        android:layout_marginBottom="114dp"
+        android:adjustViewBounds="false"
+        android:background="@drawable/btn_entrar"
+        android:baselineAlignBottom="false"
+        android:cropToPadding="true"
+        android:scaleType="centerInside" />
 
 </RelativeLayout>
