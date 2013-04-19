@@ -2,7 +2,6 @@ package com.example.swagri;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
 
 public class SelectNewOldFincaActivity extends Activity {
 
