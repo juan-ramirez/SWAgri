@@ -14,7 +14,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DataBaseHelper extends SQLiteOpenHelper {
 
 	// The Android's default system path of your application database.
-	private static String DB_PATH = "/data/data/com.enfasis.sistemagestionriesgo/databases/";
+	private String DB_PATH;
 
 	private static String DB_NAME = "db_asdb.s3db";
 
@@ -32,6 +32,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 		super(context, DB_NAME, null, 1);
 		this.myContext = context;
+		DB_PATH = myContext.getFilesDir().getPath();
+		String nothing = "asdf";
+		nothing.charAt(0);
 	}
 
 	/**
