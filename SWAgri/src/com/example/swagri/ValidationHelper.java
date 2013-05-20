@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 
 public class ValidationHelper {
-	
+
 	//Codigo goliado de otra parte (en parte)
 	 // Regular Expression
     // you can change the expression based on your need
@@ -16,7 +16,7 @@ public class ValidationHelper {
 
     
     // Error Messages
-    private static final String REQUIRED_MSG = "requerido";
+    private static final String REQUIRED_MSG = "Requerido, no debe estar en blanco";
     private static final String PHONE_MSG = "Debe ser un teléfono de 7 dígitos, seguidos";
     private static final String CODIGOFINCA_MSG ="Debe ser un código de 10 dígitos";
     private static final String MATRICULAINMOBILIARIA_MSG = "Debe ser un código de 10 dígitos";

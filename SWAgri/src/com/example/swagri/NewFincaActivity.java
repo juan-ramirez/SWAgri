@@ -1,5 +1,7 @@
 package com.example.swagri;
 
+import java.util.Arrays;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -59,7 +61,7 @@ public class NewFincaActivity extends Activity {
 		if(!ValidationHelper.isMatriculaInmobiliaria(etMatriculaInmobiliaria, true)) ret = false;
 		if(!ValidationHelper.isValid(etDireccionFinca, 45, "La dirección de la finca no es válida", true)) ret = false;
 		if(!ValidationHelper.isPhoneNumber(etTelefonoFinca, true)) ret = false;
-		if(!ValidationHelper.isValid(etExtensionFinca, 8, "Hay un error en la extensión de la finca", true)) ret = false;
+		if(!ValidationHelper.isValid(etExtensionFinca, 8, "La extensión de la finca es muy grande", true)) ret = false;
 		if(!ValidationHelper.isValid(etNumeroLotes, 10, "Hay un error en el número de lotes de la finca", true)) ret = false;
 		
 		
@@ -73,6 +75,7 @@ public class NewFincaActivity extends Activity {
 								etNumeroLotes.getText().toString() };
 		
 		Toast.makeText(this, "Creando finca", Toast.LENGTH_LONG).show();
+		System.out.println("arr: " + Arrays.toString(dataArray));
 		
 	}
 	
