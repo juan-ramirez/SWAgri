@@ -10,6 +10,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
 
@@ -33,8 +34,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 		super(context, DB_NAME, null, 1);
 		this.myContext = context;
 		DB_PATH = myContext.getFilesDir().getPath();
-		String nothing = "asdf";
-		nothing.charAt(0);
+		Log.e("App", DB_PATH);
 	}
 
 	/**
@@ -82,7 +82,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 		try {
 			String myPath = DB_PATH + DB_NAME;
-			checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
+			checkDB = SQLiteDatabase.openDatabase(myPath, null,
+					SQLiteDatabase.OPEN_READONLY);
 
 		} catch (SQLiteException e) {
 
@@ -133,7 +134,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 		// Open the database
 		String myPath = DB_PATH + DB_NAME;
-		myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READWRITE);
+		myDataBase = SQLiteDatabase.openDatabase(myPath, null,
+				SQLiteDatabase.OPEN_READWRITE);
 
 	}
 

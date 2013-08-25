@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="@drawable/bg_general">
+    android:background="@drawable/bg_general"
+    android:orientation="vertical" >
 
     <TextView
         android:id="@+id/textView1"
@@ -14,28 +14,30 @@
         android:text="SWAgri"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@android:color/white"
-        android:textSize="60dp" />
+        android:textSize="60sp" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btnNewFinca"
         android:layout_width="300dp"
         android:layout_height="70dp"
         android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="185dp"
-        android:text="Nueva Finca" 
-        android:textSize="40dp"
-        android:textColor="@android:color/white"/>
+        android:onClick="goNewFincaActivity"
+        android:text="Nueva Finca"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
 
-     <Button
-         android:id="@+id/button1"
-         android:layout_width="300dp"
-         android:layout_height="70dp"
-         android:layout_below="@+id/textView1"
-         android:layout_centerHorizontal="true"
-         android:layout_marginTop="321dp"
-         android:text="Finca Existente"
-         android:textColor="@android:color/white"
-         android:textSize="40dp" />
+    <Button
+        android:id="@+id/btnOldFinca"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="321dp"
+        android:onClick="goOldFincaActivity"
+        android:text="Finca Existente"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
 
 </RelativeLayout>

@@ -2,41 +2,37 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="@drawable/bg_login">
+    android:background="@drawable/bg_login"
+    android:orientation="vertical" >
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/etxtUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:ems="11"
-        android:text="Usuario" 
-        android:textSize="30dp">
-
-        <requestFocus />
+        android:hint="@string/usuario"
+        android:inputType="text"
+        android:textSize="20sp" >
     </EditText>
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/etxtPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_alignRight="@+id/editText1"
-        android:layout_below="@+id/editText1"
+        android:layout_alignLeft="@+id/etxtUser"
+        android:layout_alignRight="@+id/etxtUser"
+        android:layout_below="@+id/etxtUser"
         android:layout_marginTop="46dp"
         android:ems="11"
-        android:hint="Contraseña"
+        android:hint="@string/contrasena"
         android:inputType="textPassword"
-        android:text="Contraseña" 
-        android:textSize="30dp">
-
-        <requestFocus />
+        android:textSize="20sp" >
     </EditText>
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/imgbtnLogin"
         android:layout_width="450dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -45,7 +41,9 @@
         android:adjustViewBounds="false"
         android:background="@drawable/btn_entrar"
         android:baselineAlignBottom="false"
+        android:contentDescription="@string/button"
         android:cropToPadding="true"
+        android:onClick="doLogin"
         android:scaleType="centerInside" />
 
 </RelativeLayout>

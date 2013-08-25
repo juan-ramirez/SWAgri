@@ -4,6 +4,10 @@ import java.util.Arrays;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class NewFincaActivity extends Activity {
-	
+
 	private EditText etNombreFinca;
 	private EditText etCodigoFinca;
 	private EditText etMatriculaInmobiliaria;
@@ -21,29 +25,45 @@ public class NewFincaActivity extends Activity {
 	private EditText etNumeroLotes;
 	private Button btnCrear;
 
+	private SQLiteDatabase database;
+	Cursor generalCursor;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_finca);
-		
+
 		assignEditTexts();
-		
+
 		btnCrear = (Button) findViewById(R.id.btnCrearFinca);
 		btnCrear.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				if(Validate()){
+				if (Validate()) {
 					submitForm();
-				}else{
-					Toast.makeText(NewFincaActivity.this, "Existen errores en el formulario", Toast.LENGTH_LONG).show();
+				} else {
+					Toast.makeText(NewFincaActivity.this,
+							"Existen errores en el formulario",
+							Toast.LENGTH_LONG).show();
 				}
 			}
 		});
+
+		DataBaseHelper dbHelper = new DataBaseHelper(this);
+
+		try {
+			dbHelper.openDataBase();
+		} catch (SQLException sqle) {
+			Log.e("BD", sqle.toString());
+		}
+
+		database = dbHelper.myDataBase;
+
 	}
-	
-	private void assignEditTexts(){
+
+	private void assignEditTexts() {
 		etNombreFinca = (EditText) findViewById(R.id.etNombreFinca);
 		etCodigoFinca = (EditText) findViewById(R.id.etCodigoFinca);
 		etMatriculaInmobiliaria = (EditText) findViewById(R.id.etMatriculaInmobiliaria);
@@ -52,33 +72,45 @@ public class NewFincaActivity extends Activity {
 		etExtensionFinca = (EditText) findViewById(R.id.etExtensionFinca);
 		etNumeroLotes = (EditText) findViewById(R.id.etNumeroLotes);
 	}
-	
-	private boolean Validate(){
+
+	private boolean Validate() {
 		boolean ret = true;
-		
-		if(!ValidationHelper.isValid(etNombreFinca, 45, "El nombre de la finca no es válido", true)) ret = false;
-		if(!ValidationHelper.isCodigoFinca(etCodigoFinca, true)) ret = false;
-		if(!ValidationHelper.isMatriculaInmobiliaria(etMatriculaInmobiliaria, true)) ret = false;
-		if(!ValidationHelper.isValid(etDireccionFinca, 45, "La dirección de la finca no es válida", true)) ret = false;
-		if(!ValidationHelper.isPhoneNumber(etTelefonoFinca, true)) ret = false;
-		if(!ValidationHelper.isValid(etExtensionFinca, 8, "La extensión de la finca es muy grande", true)) ret = false;
-		if(!ValidationHelper.isValid(etNumeroLotes, 10, "Hay un error en el número de lotes de la finca", true)) ret = false;
-		
-		
+
+		if (!ValidationHelper.isValid(etNombreFinca, 45,
+				"El nombre de la finca no es válido", true))
+			ret = false;
+		if (!ValidationHelper.isCodigoFinca(etCodigoFinca, true))
+			ret = false;
+		if (!ValidationHelper.isMatriculaInmobiliaria(etMatriculaInmobiliaria,
+				true))
+			ret = false;
+		if (!ValidationHelper.isValid(etDireccionFinca, 45,
+				"La dirección de la finca no es válida", true))
+			ret = false;
+		if (!ValidationHelper.isPhoneNumber(etTelefonoFinca, true))
+			ret = false;
+		if (!ValidationHelper.isValid(etExtensionFinca, 8,
+				"La extensión de la finca es muy grande", true))
+			ret = false;
+		if (!ValidationHelper.isValid(etNumeroLotes, 10,
+				"Hay un error en el número de lotes de la finca", true))
+			ret = false;
+
 		return ret;
 	}
-	
-	private void submitForm(){
-		String dataArray[] =  { etNombreFinca.getText().toString(), etCodigoFinca.getText().toString(), 
-								etMatriculaInmobiliaria.getText().toString(), etDireccionFinca.getText().toString(), 
-								etTelefonoFinca.getText().toString(), etExtensionFinca.getText().toString(), 
-								etNumeroLotes.getText().toString() };
-		
+
+	private void submitForm() {
+		String dataArray[] = { etNombreFinca.getText().toString(),
+				etCodigoFinca.getText().toString(),
+				etMatriculaInmobiliaria.getText().toString(),
+				etDireccionFinca.getText().toString(),
+				etTelefonoFinca.getText().toString(),
+				etExtensionFinca.getText().toString(),
+				etNumeroLotes.getText().toString() };
+
 		Toast.makeText(this, "Creando finca", Toast.LENGTH_LONG).show();
 		System.out.println("arr: " + Arrays.toString(dataArray));
-		
+
 	}
-	
-	
 
 }

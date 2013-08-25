@@ -7,5 +7,9 @@
     <string name="title_activity_select_new_old_finca">SelectNewOldFincaActivity</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_new_finca">NewFincaActivity</string>
+    <string name="button">Button</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="title_activity_old_finca">OldFincaActivity</string>
 
 </resources>
